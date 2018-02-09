@@ -1,5 +1,6 @@
 const https = require('https');
 const URL = require('url');
+const fs = require('fs');
 // const baseUrl = 'https://doub.bid/sszhfx/'
 const baseUrl = 'https://www.baidu.com/'
 
@@ -40,8 +41,6 @@ const getDataHttps = (options) => {
   });
 }
 
-let data = [];
-
 getDataHttps({
   hostname: 'doub.bid',
   path: '/sszhfx/',
@@ -70,7 +69,11 @@ getDataHttps({
   })
   Promise.all(promiseLists).then(values => {
     const finalResult = new Buffer(values.join('\n')).toString('base64');
-    console.log(finalResult);
+    // if(!fs.existsSync('./public')) {
+    //   fs.mkdirSync('./public',0777);
+    // }
+    fs.writeFileSync('./subscribe', finalResult);
+    // console.log(finalResult);
   });
 })
 
