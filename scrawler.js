@@ -73,20 +73,6 @@ getDataHttps({
     //   fs.mkdirSync('./public',0777);
     // }
     fs.writeFileSync('./subscribe', finalResult);
-    // console.log(finalResult);
+    console.log('writing ./subscribe success!')
   });
 })
-
-
-// https.get(baseUrl, function(res){
-//   let html='';
-//   res.setEncoding('utf8');
-//   res.on('data', (chunk) => {
-//     html += chunk;
-//   });
-//   res.on('end', () => {
-//       console.log(html);    //这里得到完整的HTML字符串  
-//   });
-// }).on('error', (e) => {
-//   console.error(`Got error: ${e.message}`);
-// });
