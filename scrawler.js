@@ -1,7 +1,5 @@
 const https = require('https');
 const URL = require('url');
-const globalTunnel = require('global-tunnel');
-const URLSafeBase64 = require('urlsafe-base64');
 // const baseUrl = 'https://doub.bid/sszhfx/'
 const baseUrl = 'https://www.baidu.com/'
 
