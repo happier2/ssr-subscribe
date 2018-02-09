@@ -72,7 +72,12 @@ getDataHttps({
     // if(!fs.existsSync('./public')) {
     //   fs.mkdirSync('./public',0777);
     // }
-    fs.writeFileSync('./subscribe', finalResult);
-    console.log('writing ./subscribe success!')
+    fs.writeFile('./subscribe', finalResult, error => {
+      if(error) {
+        console.log('write fail!')
+      } else {
+        console.log('writing ./subscribe success!')
+      }
+    });
   });
 })
