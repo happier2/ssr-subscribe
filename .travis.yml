@@ -13,6 +13,7 @@ script:
   - npm start
 
 after_success:
+  - git init
   - git config user.name "happier2"
   - git config user.email "liuxiaoming8841@gmail.com"
   - git add .
