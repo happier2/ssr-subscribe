@@ -42,7 +42,7 @@ const getDataHttps = (options) => {
 }
 
 getDataHttps({
-  hostname: 'doub.bid',
+  hostname: 'doub.io',
   path: '/sszhfx/',
 }).then((html) => {
   const re = /http:\/\/.*?text=ssr:\/\/[0-9a-zA-Z]+/g
