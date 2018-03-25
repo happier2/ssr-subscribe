@@ -48,6 +48,7 @@ getDataHttps({
   const re = /http:\/\/.*?text=ssr:\/\/[0-9a-zA-Z]+/g
   const httpLinks = html.match(re)
   const promiseLists = httpLinks.map(httpLink => {
+    // console.log(httpLink)
     const p = URL.parse(httpLink)
     return getDataHttps({
       hostname: p.hostname,
@@ -69,6 +70,7 @@ getDataHttps({
   })
   Promise.all(promiseLists).then(values => {
     const finalResult = new Buffer(values.join('\n')).toString('base64');
+    const finalRawResult = new Buffer(values.join('\n')).toString('base64');
     // if(!fs.existsSync('./public')) {
     //   fs.mkdirSync('./public',0777);
     // }
@@ -77,6 +79,13 @@ getDataHttps({
         console.log('write fail!')
       } else {
         console.log('writing ./subscribe success!')
+      }
+    });
+    fs.writeFile('./subscribe-raw', finalRawResult, error => {
+      if(error) {
+        console.log('write fail!')
+      } else {
+        console.log('writing ./subscribe-raw success!')
       }
     });
   });
