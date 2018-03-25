@@ -70,7 +70,7 @@ getDataHttps({
   })
   Promise.all(promiseLists).then(values => {
     const finalResult = new Buffer(values.join('\n')).toString('base64');
-    const finalRawResult = new Buffer(values.join('\n')).toString('base64');
+    const finalRawResult = new Buffer(values.join('\n')).toString();
     // if(!fs.existsSync('./public')) {
     //   fs.mkdirSync('./public',0777);
     // }
