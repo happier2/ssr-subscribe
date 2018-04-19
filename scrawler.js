@@ -68,8 +68,8 @@ getDataHttps({
       // data.push(finalSSR);
     })
   })
-  Promise.all(promiseLists).then(values => {
-    values.filter(item => item != null);
+  Promise.all(promiseLists).then(valuesRaw => {
+    const values = valuesRaw.filter(item => item != null);
     const finalResult = new Buffer(values.join('\n')).toString('base64');
     const finalRawResult = new Buffer(values.join('\n')).toString();
     // if(!fs.existsSync('./public')) {
